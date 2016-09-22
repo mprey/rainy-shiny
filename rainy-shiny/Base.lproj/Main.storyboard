@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="rainy_shiny" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="rainy_shiny" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -78,7 +78,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m4X-um-QNp">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Weather Cell" rowHeight="80" id="nXu-yi-DiP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="nXu-yi-DiP">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nXu-yi-DiP" id="PD7-Nn-QN0">
@@ -92,7 +92,8 @@
                                                         <constraint firstAttribute="height" constant="50" id="pHY-dk-uOc"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiD-Nl-q19">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiD-Nl-q19">
+                                                    <frame key="frameInset" minX="75" minY="8" width="130" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="Udf-hI-xos"/>
                                                         <constraint firstAttribute="width" constant="130" id="qaD-rG-9UK"/>
@@ -101,7 +102,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zd-7t-DnT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rainy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zd-7t-DnT">
+                                                    <frame key="frameInset" minX="75" minY="42" width="130" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="DpY-iT-vIk"/>
                                                         <constraint firstAttribute="height" constant="24" id="F8u-J7-tbn"/>
@@ -131,7 +133,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0FH-dc-jHg" firstAttribute="trailing" secondItem="PD7-Nn-QN0" secondAttribute="trailingMargin" id="3Jd-Xy-kbs"/>
-                                                <constraint firstItem="brz-md-iMV" firstAttribute="leading" secondItem="PD7-Nn-QN0" secondAttribute="leadingMargin" id="AXQ-Bu-ce5"/>
+                                                <constraint firstItem="brz-md-iMV" firstAttribute="centerY" secondItem="PD7-Nn-QN0" secondAttribute="centerY" id="N2G-ad-sd7"/>
                                                 <constraint firstItem="jmB-Sr-NNP" firstAttribute="trailing" secondItem="PD7-Nn-QN0" secondAttribute="trailingMargin" id="RAp-EX-eqY"/>
                                                 <constraint firstItem="1zd-7t-DnT" firstAttribute="leading" secondItem="brz-md-iMV" secondAttribute="trailing" constant="17" id="Vwu-Kj-Uc5"/>
                                                 <constraint firstItem="BiD-Nl-q19" firstAttribute="leading" secondItem="brz-md-iMV" secondAttribute="trailing" constant="17" id="WKW-Id-R7j"/>
@@ -157,6 +159,14 @@
                             <constraint firstAttribute="trailing" secondItem="m4X-um-QNp" secondAttribute="trailing" id="xKv-Fq-n2h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentCityLabel" destination="2VQ-b7-dgA" id="Hzf-7k-WkF"/>
+                        <outlet property="currentDateLabel" destination="o7v-vU-Dph" id="gsf-yA-ph8"/>
+                        <outlet property="currentTemperatureLabel" destination="lkF-To-e26" id="xdB-Np-F97"/>
+                        <outlet property="currentWeatherImage" destination="KOi-pa-u7Y" id="qog-Ej-YbV"/>
+                        <outlet property="currentWeatherLabel" destination="Upd-XR-tck" id="J7B-5S-1WG"/>
+                        <outlet property="tableView" destination="m4X-um-QNp" id="Xfu-xr-71a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
