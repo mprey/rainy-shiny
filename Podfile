@@ -6,5 +6,5 @@ target 'rainy-shiny' do
   use_frameworks!
 
   # Pods for rainy-shiny
-pod 'Alamofire'
+  pod 'Alamofire'
 end
