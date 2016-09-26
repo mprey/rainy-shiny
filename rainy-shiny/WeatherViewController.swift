@@ -12,7 +12,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var currentWeatherImage: UIImageView!
-    @IBOutlet weak var currentTemperatureLabel: NSLayoutConstraint!
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var currentCityLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -26,7 +26,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.dataSource = self
         
         self.currentWeather.getWeatherData {
-            //completed
+            self.updateUI()
         }
         
     }
@@ -42,6 +42,14 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
         return cell
+    }
+    
+    func updateUI() {
+        self.currentDateLabel?.text = self.currentWeather.date
+        self.currentTemperatureLabel?.text = "\(self.currentWeather.currentTemperature)"
+        self.currentCityLabel?.text = self.currentWeather._cityName
+        self.currentWeatherLabel?.text = self.currentWeather.weatherType
+        self.currentWeatherImage.image = UIImage(named: self.currentWeather.weatherType)
     }
     
 }

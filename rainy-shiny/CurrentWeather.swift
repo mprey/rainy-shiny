@@ -17,49 +17,60 @@ class CurrentWeather {
     var _currentTemperature: Double!
     
     var cityName: String {
-        if _cityName == nil {
-            return ""
-        }
-        return _cityName
+        return _cityName == nil ? "" : _cityName
     }
     
     var weatherType: String {
-        if _weatherType == nil {
-            return ""
-        }
-        return _weatherType
+        return _weatherType == nil ? "" : _weatherType
     }
     
     var currentTemperature: Double {
-        if _currentTemperature == nil {
-            return 0.0
-        }
-        return _currentTemperature
+        return _currentTemperature == nil ? 0.0 : _currentTemperature
     }
     
     var date: String {
         if _date == nil {
-            return ""
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .none
+            
+            let currentDate = dateFormatter.string(from: Date())
+            self._date = "Today, \(currentDate)"
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .none
-        
-        let currentDate = dateFormatter.string(from: Date())
-        self._date = "Today, \(currentDate)"
-        
         return _date
     }
     
-    func getWeatherData(completed: kMPDownloadComplete) {
+    func getWeatherData(completed: @escaping kMPDownloadComplete) {
         Alamofire.request(TEMP_URL).responseJSON { response in
-            if let JSON = response.result.value {
-                print(JSON)
+            if let JSON = response.result.value as? Dictionary<String, AnyObject> {
+                self.parseJSON(json: JSON, completed: completed)
             } else {
-                print(response)
+                print(response.result.error?.localizedDescription)
+                completed()
+            }
+        }
+    }
+    
+    func parseJSON(json: Dictionary<String, AnyObject>, completed: kMPDownloadComplete) {
+        if let cityName = json["name"] as? String {
+            self._cityName = cityName
+        }
+        
+        if let weatherDict = json["weather"] as? [Dictionary<String, AnyObject>] {
+            if let weatherType = weatherDict[0]["main"] as? String {
+                self._weatherType = weatherType
+            }
+        }
+        
+        if let tempDict = json["main"] as? Dictionary<String, AnyObject> {
+            if let currentTemperature = tempDict["temp"] as? Double {
+                let kelvin1 = (currentTemperature * (9/5) - 459.67)
+                let kelvin2 = Double(round(10 * kelvin1 / 10))
+                
+                self._currentTemperature = kelvin2
             }
         }
         completed()
-    }
+     }
     
 }

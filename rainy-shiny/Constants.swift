@@ -17,6 +17,6 @@ let kMPAppIDParam = "&appid="
 
 let kMPAPIKey = "9af8924720095aeb9cd6f85390d5e1bd"
 
-let TEMP_URL = "\(kMPBaseURL)\(kMPLatParam)45\(kMPLongParam)62\(kMPAppIDParam)\(kMPAPIKey)"
+let TEMP_URL = "\(kMPBaseURL)\(kMPLatParam)40.712784\(kMPLongParam)-74.005941\(kMPAppIDParam)\(kMPAPIKey)"
 
 typealias kMPDownloadComplete = () -> ()

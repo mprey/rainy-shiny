@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A037E871D99726C0074AD83 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A037E861D99726C0074AD83 /* Forecast.swift */; };
 		2A2EA9F51D921B370051BDB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2EA9F41D921B370051BDB3 /* AppDelegate.swift */; };
 		2A2EA9F71D921B370051BDB3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2EA9F61D921B370051BDB3 /* WeatherViewController.swift */; };
 		2A2EA9FA1D921B370051BDB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2EA9F81D921B370051BDB3 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A037E861D99726C0074AD83 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		2A2EA9F11D921B370051BDB3 /* rainy-shiny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rainy-shiny.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2EA9F41D921B370051BDB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A2EA9F61D921B370051BDB3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +46,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A037E841D99685C0074AD83 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2A7BB2841D9424E400B9C99D /* CurrentWeather.swift */,
+				2A7BB2821D94247E00B9C99D /* Constants.swift */,
+				2A037E861D99726C0074AD83 /* Forecast.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		2A037E851D9968610074AD83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A2EA9F61D921B370051BDB3 /* WeatherViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		2A2EA9E81D921B370051BDB3 = {
 			isa = PBXGroup;
 			children = (
@@ -65,14 +85,13 @@
 		2A2EA9F31D921B370051BDB3 /* rainy-shiny */ = {
 			isa = PBXGroup;
 			children = (
+				2A037E851D9968610074AD83 /* Controller */,
+				2A037E841D99685C0074AD83 /* Util */,
 				2A2EA9F41D921B370051BDB3 /* AppDelegate.swift */,
-				2A2EA9F61D921B370051BDB3 /* WeatherViewController.swift */,
 				2A2EA9F81D921B370051BDB3 /* Main.storyboard */,
 				2A2EA9FB1D921B370051BDB3 /* Assets.xcassets */,
 				2A2EA9FD1D921B370051BDB3 /* LaunchScreen.storyboard */,
 				2A2EAA001D921B370051BDB3 /* Info.plist */,
-				2A7BB2821D94247E00B9C99D /* Constants.swift */,
-				2A7BB2841D9424E400B9C99D /* CurrentWeather.swift */,
 			);
 			path = "rainy-shiny";
 			sourceTree = "<group>";
@@ -223,6 +242,7 @@
 				2A2EA9F51D921B370051BDB3 /* AppDelegate.swift in Sources */,
 				2A7BB2831D94247E00B9C99D /* Constants.swift in Sources */,
 				2A7BB2851D9424E400B9C99D /* CurrentWeather.swift in Sources */,
+				2A037E871D99726C0074AD83 /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

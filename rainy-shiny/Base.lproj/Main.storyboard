@@ -44,16 +44,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KOi-pa-u7Y">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KOi-pa-u7Y">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9hN-jZ-rXg"/>
                                             <constraint firstAttribute="height" constant="120" id="tmN-F6-FRi"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-XR-tck">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-XR-tck">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="UhO-pB-6Wx"/>
                                             <constraint firstAttribute="height" constant="22" id="cA4-Vl-zHW"/>
+                                            <constraint firstAttribute="width" constant="120" id="yNZ-EJ-ChO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,9 +62,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.39332594251839659" green="0.7819889507077219" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Upd-XR-tck" secondAttribute="trailing" constant="69" id="LzZ-Xc-Zbc"/>
                                     <constraint firstItem="2VQ-b7-dgA" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="26" id="Obx-rP-Q0B"/>
                                     <constraint firstItem="o7v-vU-Dph" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="26" id="RXA-uf-6b3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Upd-XR-tck" secondAttribute="trailing" constant="26" id="XZv-4Q-tSN"/>
                                     <constraint firstItem="q2W-fq-Mhz" firstAttribute="centerY" secondItem="uNI-QK-toa" secondAttribute="centerY" id="aJE-aW-Q7e"/>
                                     <constraint firstAttribute="bottom" secondItem="2VQ-b7-dgA" secondAttribute="bottom" constant="32" id="hNJ-qc-Wll"/>
                                     <constraint firstItem="KOi-pa-u7Y" firstAttribute="centerY" secondItem="uNI-QK-toa" secondAttribute="centerY" id="lkF-To-e26"/>
@@ -82,7 +82,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nXu-yi-DiP" id="PD7-Nn-QN0">
-                                            <frame key="frameInset" width="375" height="79"/>
+                                            <frame key="frameInset" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brz-md-iMV">
@@ -162,7 +162,7 @@
                     <connections>
                         <outlet property="currentCityLabel" destination="2VQ-b7-dgA" id="Hzf-7k-WkF"/>
                         <outlet property="currentDateLabel" destination="o7v-vU-Dph" id="gsf-yA-ph8"/>
-                        <outlet property="currentTemperatureLabel" destination="lkF-To-e26" id="xdB-Np-F97"/>
+                        <outlet property="currentTemperatureLabel" destination="q2W-fq-Mhz" id="W5J-ho-5xx"/>
                         <outlet property="currentWeatherImage" destination="KOi-pa-u7Y" id="qog-Ej-YbV"/>
                         <outlet property="currentWeatherLabel" destination="Upd-XR-tck" id="J7B-5S-1WG"/>
                         <outlet property="tableView" destination="m4X-um-QNp" id="Xfu-xr-71a"/>
