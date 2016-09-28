@@ -26,10 +26,10 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VQ-b7-dgA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VQ-b7-dgA">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="BeZ-JG-8VH"/>
-                                            <constraint firstAttribute="width" constant="83" id="SEO-a7-5E2"/>
+                                            <constraint firstAttribute="width" constant="160" id="Hc2-8j-gkX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,8 +146,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.84474676724137931" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="maxTemp" destination="jmB-Sr-NNP" id="2ML-Hq-Rbh"/>
-                                            <outlet property="minTemp" destination="0FH-dc-jHg" id="XeH-0J-28k"/>
+                                            <outlet property="maxTemp" destination="0FH-dc-jHg" id="l4L-JB-p22"/>
+                                            <outlet property="minTemp" destination="jmB-Sr-NNP" id="Xaa-5Y-0Ub"/>
                                             <outlet property="weatherImage" destination="brz-md-iMV" id="OXP-YO-fQI"/>
                                             <outlet property="weatherType" destination="1zd-7t-DnT" id="Ml8-bQ-g6g"/>
                                             <outlet property="weekDay" destination="BiD-Nl-q19" id="ePV-fL-3zO"/>

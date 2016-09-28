@@ -41,5 +41,7 @@
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide relevant, up-to-date weather information.</string>
 </dict>
 </plist>

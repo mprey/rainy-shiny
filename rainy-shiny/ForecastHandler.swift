@@ -14,6 +14,8 @@ class ForecastHandler {
     var forecasts = [Forecast]()
     
     func getForecastData(completed: @escaping kMPDownloadComplete) {
+        //buildURL(lat: Location.sharedInstance.lat, lon: Location.sharedInstance.lon, current: false)
+        print(TEMP_URL_FORECAST, "\n\n\n\n\n\n")
         Alamofire.request(TEMP_URL_FORECAST).responseJSON() { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject> {
                 self.parseJSON(json: JSON, completed: completed)
@@ -31,6 +33,7 @@ class ForecastHandler {
                 self.forecasts.append(forecast)
             }
         }
+        self.forecasts.remove(at: 0) //remove current day as it is displayed in the other view
         completed()
     }
     

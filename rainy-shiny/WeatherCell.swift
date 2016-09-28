@@ -16,11 +16,6 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var minTemp: UILabel!
     @IBOutlet weak var maxTemp: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func updateCell(forecast: Forecast) {
         self.weatherImage?.image = UIImage(named: forecast.weatherType)
         self.weekDay?.text = forecast.date
