@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,7 +18,8 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentWeather = CurrentWeather()
+    var currentWeatherHandler = CurrentWeatherHandler()
+    var forecastHandler = ForecastHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,10 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.currentWeather.getWeatherData {
-            self.updateUI()
+        self.currentWeatherHandler.getWeatherData {
+            self.forecastHandler.getForecastData {
+                self.updateUI()
+            }
         }
         
     }
@@ -40,16 +44,18 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell", for: indexPath) as? WeatherCell {
+            
+        }
         return cell
     }
     
     func updateUI() {
-        self.currentDateLabel?.text = self.currentWeather.date
-        self.currentTemperatureLabel?.text = "\(self.currentWeather.currentTemperature)"
-        self.currentCityLabel?.text = self.currentWeather._cityName
-        self.currentWeatherLabel?.text = self.currentWeather.weatherType
-        self.currentWeatherImage.image = UIImage(named: self.currentWeather.weatherType)
+        self.currentDateLabel?.text = self.currentWeatherHandler.date
+        self.currentTemperatureLabel?.text = "\(self.currentWeatherHandler.currentTemperature)"
+        self.currentCityLabel?.text = self.currentWeatherHandler._cityName
+        self.currentWeatherLabel?.text = self.currentWeatherHandler.weatherType
+        self.currentWeatherImage.image = UIImage(named: self.currentWeatherHandler.weatherType)
     }
     
 }

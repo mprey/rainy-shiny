@@ -10,6 +10,7 @@
 import Foundation
 
 let kMPBaseURL = "http://api.openweathermap.org/data/2.5/weather?"
+let kMPForecastURL = "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=108&mode=json"
 
 let kMPLatParam = "&lat="
 let kMPLongParam = "&lon="
@@ -18,5 +19,21 @@ let kMPAppIDParam = "&appid="
 let kMPAPIKey = "9af8924720095aeb9cd6f85390d5e1bd"
 
 let TEMP_URL = "\(kMPBaseURL)\(kMPLatParam)40.712784\(kMPLongParam)-74.005941\(kMPAppIDParam)\(kMPAPIKey)"
+let TEMP_URL_FORECAST = "\(kMPForecastURL)\(kMPLatParam)40.712784\(kMPLongParam)-74.005941\(kMPAppIDParam)\(kMPAPIKey)"
 
 typealias kMPDownloadComplete = () -> ()
+
+func convertToFarenheit(kelvin: Double) -> Double {
+    let kelvin1 = (kelvin * (9/5) - 459.67)
+    let kelvin2 = Double(round(10 * kelvin1 / 10))
+    
+    return kelvin2
+}
+
+extension Date {
+    func weekDay() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+}

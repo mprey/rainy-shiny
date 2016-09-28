@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CurrentWeather {
+class CurrentWeatherHandler {
     
     var _cityName: String!
     var _date: String!
@@ -64,10 +64,7 @@ class CurrentWeather {
         
         if let tempDict = json["main"] as? Dictionary<String, AnyObject> {
             if let currentTemperature = tempDict["temp"] as? Double {
-                let kelvin1 = (currentTemperature * (9/5) - 459.67)
-                let kelvin2 = Double(round(10 * kelvin1 / 10))
-                
-                self._currentTemperature = kelvin2
+                self._currentTemperature = convertToFarenheit(kelvin: currentTemperature)
             }
         }
         completed()
