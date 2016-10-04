@@ -18,22 +18,17 @@ let kMPAppIDParam = "&appid="
 
 let kMPAPIKey = "9af8924720095aeb9cd6f85390d5e1bd"
 
-let TEMP_URL = "\(kMPBaseURL)\(kMPLatParam)\(Location.sharedInstance.lat!)\(kMPLongParam)\(Location.sharedInstance.lon!)\(kMPAppIDParam)\(kMPAPIKey)"
-let TEMP_URL_FORECAST = "\(kMPForecastURL)\(kMPLatParam)\(Location.sharedInstance.lat!)\(kMPLongParam)\(Location.sharedInstance.lon!)\(kMPAppIDParam)\(kMPAPIKey)"
-
 typealias kMPDownloadComplete = () -> ()
+
+func getURL(forecast: Bool) -> String {
+    var url = forecast ? kMPForecastURL : kMPBaseURL
+    url.append("\(kMPLatParam)\(Location.sharedInstance.lat!)\(kMPLongParam)\(Location.sharedInstance.lon!)\(kMPAppIDParam)\(kMPAPIKey)")
+    return url
+}
 
 func convertToFarenheit(kelvin: Double) -> Double {
     let kelvin1 = (kelvin * (9/5) - 459.67)
     let kelvin2 = Double(round(10 * kelvin1 / 10))
     
     return kelvin2
-}
-
-extension Date {
-    func weekDay() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self)
-    }
 }

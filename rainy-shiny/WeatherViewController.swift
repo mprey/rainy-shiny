@@ -23,7 +23,9 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     var forecastHandler = ForecastHandler()
     
     var locationManager = CLLocationManager()
-    var currentLocation: CLLocation!
+    var currentLocation: CLLocation?
+    
+    var skipped: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +33,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startMonitoringSignificantLocationChanges()
-        
-        self.locationAuthStatus()
+        self.locationManager.startUpdatingLocation()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -41,7 +41,8 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func fetchData() {
-        print("GETTING DATA \n\n\n\n\n\n")
+        Location.sharedInstance.lat = self.currentLocation?.coordinate.latitude
+        Location.sharedInstance.lon = self.currentLocation?.coordinate.longitude
         self.currentWeatherHandler.getWeatherData {
             self.forecastHandler.getForecastData {
                 self.updateUI()
@@ -52,25 +53,25 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            self.fetchData()
-        } else {
-            let alert = UIAlertController(title: "Error", message: "You must enable location services in Settings in order to use this app.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Acknowledge", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            //self.currentLocation = self.locationManager.location
+            //self.fetchData()
         }
     }
     
-    func locationAuthStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location
-            print("UPDATING LOCATION\n\n\n\n\n\n")
-            Location.sharedInstance.lat = currentLocation.coordinate.latitude
-            Location.sharedInstance.lon = currentLocation.coordinate.longitude
-            print(Location.sharedInstance.lat, Location.sharedInstance.lon, "\n\n\n\n\n")
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-            locationAuthStatus()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        
+        if (-(location.timestamp.timeIntervalSinceNow) > 5.0)  {
+            return
         }
+        
+        if (location.horizontalAccuracy < 0) {
+            return
+        }
+        
+        self.currentLocation = location
+        self.locationManager.stopUpdatingLocation()
+        self.fetchData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

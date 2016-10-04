@@ -53,3 +53,11 @@ class Forecast {
         return _weatherType == nil ? "" : _weatherType!
     }
 }
+
+extension Date {
+    func weekDay() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+}

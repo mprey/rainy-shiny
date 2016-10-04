@@ -41,7 +41,8 @@ class CurrentWeatherHandler {
     }
     
     func getWeatherData(completed: @escaping kMPDownloadComplete) {
-        Alamofire.request(TEMP_URL).responseJSON { response in
+        let url = getURL(forecast: false)
+        Alamofire.request(url).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject> {
                 self.parseJSON(json: JSON, completed: completed)
             } else {
