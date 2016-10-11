@@ -35,10 +35,10 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-fq-Mhz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-fq-Mhz">
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="5PU-CX-mWj"/>
                                             <constraint firstAttribute="height" constant="68" id="RyO-Ea-atO"/>
-                                            <constraint firstAttribute="width" constant="120" id="mmR-n6-tNX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="49"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +50,7 @@
                                             <constraint firstAttribute="height" constant="120" id="tmN-F6-FRi"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-XR-tck">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-XR-tck">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="cA4-Vl-zHW"/>
                                             <constraint firstAttribute="width" constant="120" id="yNZ-EJ-ChO"/>
@@ -62,14 +62,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.39332594251839659" green="0.7819889507077219" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2VQ-b7-dgA" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="26" id="Obx-rP-Q0B"/>
-                                    <constraint firstItem="o7v-vU-Dph" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="26" id="RXA-uf-6b3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Upd-XR-tck" secondAttribute="trailing" constant="26" id="XZv-4Q-tSN"/>
+                                    <constraint firstItem="q2W-fq-Mhz" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="15" id="HbA-h8-5nx"/>
+                                    <constraint firstItem="2VQ-b7-dgA" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="15" id="Obx-rP-Q0B"/>
+                                    <constraint firstItem="o7v-vU-Dph" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="15" id="RXA-uf-6b3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Upd-XR-tck" secondAttribute="trailing" constant="15" id="XZv-4Q-tSN"/>
                                     <constraint firstItem="q2W-fq-Mhz" firstAttribute="centerY" secondItem="uNI-QK-toa" secondAttribute="centerY" id="aJE-aW-Q7e"/>
                                     <constraint firstAttribute="bottom" secondItem="2VQ-b7-dgA" secondAttribute="bottom" constant="32" id="hNJ-qc-Wll"/>
                                     <constraint firstItem="KOi-pa-u7Y" firstAttribute="centerY" secondItem="uNI-QK-toa" secondAttribute="centerY" id="lkF-To-e26"/>
-                                    <constraint firstItem="q2W-fq-Mhz" firstAttribute="leading" secondItem="uNI-QK-toa" secondAttribute="leading" constant="26" id="ltI-kz-tYa"/>
-                                    <constraint firstAttribute="trailing" secondItem="KOi-pa-u7Y" secondAttribute="trailing" constant="26" id="mcA-WR-b4Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="KOi-pa-u7Y" secondAttribute="trailing" constant="15" id="mcA-WR-b4Q"/>
                                     <constraint firstAttribute="bottom" secondItem="Upd-XR-tck" secondAttribute="bottom" constant="32" id="s0b-pX-y1J"/>
                                     <constraint firstAttribute="height" constant="300" id="uoJ-j2-Ibh"/>
                                     <constraint firstItem="o7v-vU-Dph" firstAttribute="top" secondItem="uNI-QK-toa" secondAttribute="top" constant="20" id="vgQ-DC-NeC"/>

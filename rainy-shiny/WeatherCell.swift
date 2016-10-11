@@ -20,8 +20,8 @@ class WeatherCell: UITableViewCell {
         self.weatherImage?.image = UIImage(named: forecast.weatherType)
         self.weekDay?.text = forecast.date
         self.weatherType?.text = forecast.weatherType
-        self.minTemp?.text = forecast.lowTemp
-        self.maxTemp?.text = forecast.highTemp
+        self.minTemp?.text = forecast.lowTemp.appending(kMPDegreeSymbol)
+        self.maxTemp?.text = forecast.highTemp.appending(kMPDegreeSymbol)
     }
 
 }

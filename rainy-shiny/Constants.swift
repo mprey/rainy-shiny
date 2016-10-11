@@ -18,6 +18,8 @@ let kMPAppIDParam = "&appid="
 
 let kMPAPIKey = "9af8924720095aeb9cd6f85390d5e1bd"
 
+let kMPDegreeSymbol = "°"
+
 typealias kMPDownloadComplete = () -> ()
 
 func getURL(forecast: Bool) -> String {

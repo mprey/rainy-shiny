@@ -95,7 +95,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func updateUI() {
         self.currentDateLabel?.text = self.currentWeatherHandler.date
-        self.currentTemperatureLabel?.text = "\(self.currentWeatherHandler.currentTemperature)"
+        self.currentTemperatureLabel?.text = "\(self.currentWeatherHandler.currentTemperature)\(kMPDegreeSymbol)"
         self.currentCityLabel?.text = self.currentWeatherHandler._cityName
         self.currentWeatherLabel?.text = self.currentWeatherHandler.weatherType
         self.currentWeatherImage.image = UIImage(named: self.currentWeatherHandler.weatherType)
